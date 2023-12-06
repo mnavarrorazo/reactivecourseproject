@@ -19,9 +19,11 @@ dist/
 # Package files
 *.jar
 
-# Maven
-target/
-dist/
+# Gradle
+build/
+gradle/
+.gradle/
+
 
 # JetBrains IDE
 .idea/
