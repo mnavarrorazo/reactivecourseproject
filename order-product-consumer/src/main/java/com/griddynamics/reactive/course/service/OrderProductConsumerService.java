@@ -1,7 +1,6 @@
 package com.griddynamics.reactive.course.service;
 
 import com.griddynamics.reactive.course.dto.OrderInfo;
-import com.griddynamics.reactive.course.dto.Product;
 import com.griddynamics.reactive.course.iservice.IOrderProductConsumerService;
 import com.griddynamics.reactive.course.repository.UserInfoRepository;
 import com.griddynamics.reactive.course.util.LoggerService;
@@ -12,9 +11,6 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 import reactor.util.context.Context;
-
-import java.util.Comparator;
-import java.util.List;
 
 @Service
 @AllArgsConstructor
