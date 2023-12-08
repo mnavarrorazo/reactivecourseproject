@@ -32,3 +32,11 @@ services:
     image: product-info-service
     ports:
       - 8082:8080
+
+  order-product-consumer:
+    build:
+      context: ./order-product-consumer
+      dockerfile: Dockerfile
+    image: order-product-consumer
+    ports:
+      - 8084:8080

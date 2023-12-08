@@ -27,12 +27,14 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok:1.18.20'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    runtimeOnly("io.netty:netty-resolver-dns-native-macos:4.1.76.Final:osx-aarch_64")
 
     testCompileOnly 'org.projectlombok:lombok:1.18.20'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test:3.4.9'
-    testImplementation 'org.wiremock:wiremock:2.27.2'
+    testImplementation 'com.github.tomakehurst:wiremock:2.27.2'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
 
 }
 

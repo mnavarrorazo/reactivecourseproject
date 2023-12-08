@@ -1,13 +1,11 @@
 package com.griddynamics.reactive.course.dto;
 
-import lombok.Setter;
-import lombok.Getter;
-import lombok.ToString;
-import lombok.AllArgsConstructor;
+import lombok.*;
 
 @Getter @Setter
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class OrderInfo {
 
     /*Required*/
