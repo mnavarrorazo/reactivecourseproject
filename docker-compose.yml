@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 services:
   mongoimport:
@@ -6,17 +6,21 @@ services:
     volumes:
       - ./mongo/data/users.json:/src/data/users.json
     command: mongoimport --host mongo --username root --password pwd --db admin --collection users --file /src/data/users.json --jsonArray
-
+    networks:
+      - mongodb
   mongo:
     image: mongo
     restart: always
     ports:
       - 27017:27017
     environment:
+      MONGO_INITDB_DATABASE: admin
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: pwd
     depends_on:
       - mongoimport
+    networks:
+      - mongodb
 
   order-search-service:
     build:
@@ -24,7 +28,9 @@ services:
       dockerfile: Dockerfile
     image: order-search-service
     ports:
-      - 8083:8080
+      - 8083:8083
+    networks:
+      - reactive-services
 
   product-info-service:
     build:
@@ -32,7 +38,9 @@ services:
       dockerfile: Dockerfile
     image: product-info-service
     ports:
-      - 8082:8080
+      - 8082:8082
+    networks:
+      - reactive-services
 
   order-product-consumer:
     build:
@@ -40,8 +48,17 @@ services:
       dockerfile: Dockerfile
     image: order-product-consumer
     ports:
-      - 8084:8080
+      - 8084:8084
     depends_on:
       - mongo
       - product-info-service
       - order-search-service
+    networks:
+      - mongodb
+      - reactive-services
+
+networks:
+  mongodb:
+    driver: bridge
+  reactive-services:
+    driver: bridge

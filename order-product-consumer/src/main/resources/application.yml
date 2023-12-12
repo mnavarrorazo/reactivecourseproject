@@ -18,5 +18,17 @@ spring:
       username: root
       password: pwd
 services:
-  order-search: "http://127.0.0.1:8083/orderSearchService"
-  product-info: "http://127.0.0.1:8082/productInfoService"
+  order-search: "http://localhost:8083/orderSearchService"
+  product-info: "http://localhost:8082/productInfoService"
+
+loggin:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
+
+server:
+  port: 8084
