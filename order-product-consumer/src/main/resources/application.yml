@@ -13,13 +13,14 @@ management:
 spring:
   data:
     mongodb:
+      host: mongo
       database: admin
       port: 27017
       username: root
       password: pwd
 services:
-  order-search: "http://localhost:8083/orderSearchService"
-  product-info: "http://localhost:8082/productInfoService"
+  order-search: "http://host.docker.internal:8083/orderSearchService"
+  product-info: "http://host.docker.internal:8082/productInfoService"
 
 loggin:
   level:
